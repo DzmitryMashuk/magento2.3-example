@@ -19538,7 +19538,7 @@
      *
      * Notice that `ng-bind-html` is bound to `userHtml` controlled by the user.  With SCE
      * disabled, this application allows the user to render arbitrary HTML into the DIV, which would
-     * be an XSS security bug. In a more realistic example, one may be rendering user comments, blog
+     * be an XSS security bug. In a more realistic example, one may be rendering user comments, Modules
      * articles, etc. via bindings. (HTML is just one example of a context where rendering user
      * controlled input creates security vulnerabilities.)
      *

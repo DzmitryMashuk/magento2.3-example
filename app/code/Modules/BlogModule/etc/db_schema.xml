@@ -1,0 +1,21 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="modules_posts" resource="default" engine="innodb"
+           comment="Posts table">
+        <column xsi:type="int" name="id" padding="11" unsigned="false" nullable="false" identity="true"
+                comment="Post id"/>
+        <column xsi:type="varchar" name="title" nullable="true" length="255" comment="Post title"/>
+        <column xsi:type="mediumtext" name="content" nullable="true" comment="Post content"/>
+        <column xsi:type="smallint" name="enabled" padding="6" unsigned="false" nullable="false" identity="false"
+                default="1" comment="Is post enabled"/>
+        <column xsi:type="varchar" name="slug" nullable="false" length="255" comment="Post slug"/>
+        <column xsi:type="varchar" name="image_path" nullable="false" length="255" comment="Post image path"/>
+        <column xsi:type="timestamp" name="create_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created date"/>
+        <column xsi:type="timestamp" name="update_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Updated date"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>
