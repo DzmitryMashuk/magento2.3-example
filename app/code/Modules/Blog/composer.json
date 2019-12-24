@@ -1,5 +1,5 @@
 {
-  "name": "Modules/blog-module",
+  "name": "Modules/blog",
   "description": "My awesome Magento 2 module",
   "type": "blog-module",
   "version": "1.0.0",

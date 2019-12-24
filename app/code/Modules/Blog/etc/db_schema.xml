@@ -1,6 +1,6 @@
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
-    <table name="modules_posts" resource="default" engine="innodb"
+    <table name="modules_blog_posts" resource="default" engine="innodb"
            comment="Posts table">
         <column xsi:type="int" name="id" padding="11" unsigned="false" nullable="false" identity="true"
                 comment="Post id"/>

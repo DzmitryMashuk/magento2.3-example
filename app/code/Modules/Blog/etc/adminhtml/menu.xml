@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Modules_Blog::blog"
+             title="Blog"
+             translate="title"
+             module="Modules_Blog"
+             parent="Magento_Backend::content"
+             sortOrder="50"
+             dependsOnModule="Modules_Blog"
+             resource="Modules_Blog::blog"/>
+        <add id="Modules_Blog::blog_post"
+             title="Posts"
+             translate="title"
+             module="Modules_Blog"
+             parent="Modules_Blog::blog"
+             sortOrder="10"
+             dependsOnModule="Modules_Blog"
+             action="modulesblog/post"
+             resource="Modules_Blog::blog"/>
+    </menu>
+</config>
