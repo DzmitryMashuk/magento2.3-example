@@ -3,6 +3,8 @@
 namespace Modules\Blog\Model\ResourceModel\Post;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
+use Modules\Blog\Model\Post;
+use Modules\Blog\Model\ResourceModel\Post as ResourceModel;
 
 class Collection extends AbstractCollection
 {
@@ -17,6 +19,6 @@ class Collection extends AbstractCollection
      */
     protected function _construct()
     {
-        $this->_init('Modules\Blog\Model\Post', 'Modules\Blog\Model\ResourceModel\Post');
+        $this->_init(Post::class, ResourceModel::class);
     }
 }
