@@ -6,7 +6,7 @@ use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
 class Collection extends AbstractCollection
 {
-    protected $_idFieldName = 'post_id';
+    protected $_idFieldName = 'id';
     protected $_eventPrefix = 'modules_blog_post_collection';
     protected $_eventObject = 'post_collection';
 

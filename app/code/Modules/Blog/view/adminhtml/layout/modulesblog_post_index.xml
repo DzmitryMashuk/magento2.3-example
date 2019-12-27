@@ -6,7 +6,7 @@
     </head>
     <body>
         <referenceContainer name="content">
-            <block class="Magento\Backend\Block\Template" template="Modules_Blog::blog.phtml" name="blog"/>
+            <uiComponent name="modules_blog_post_listing"/>
         </referenceContainer>
     </body>
 </page>
