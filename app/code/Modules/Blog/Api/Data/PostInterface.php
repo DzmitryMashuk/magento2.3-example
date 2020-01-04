@@ -14,6 +14,8 @@ interface PostInterface extends ExtensibleDataInterface
     const IMAGE_PATH = 'image_path';
     const CREATE_AT  = 'create_at';
     const UPDATE_AT  = 'update_at';
+    const PRODUCT_ID = 'product_id';
+
 
     /**
      * @return int

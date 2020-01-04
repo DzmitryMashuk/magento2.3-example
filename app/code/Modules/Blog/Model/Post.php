@@ -8,10 +8,11 @@ use Modules\Blog\Api\Data\PostInterface;
 
 class Post extends AbstractModel implements IdentityInterface, PostInterface
 {
-    const CACHE_TAG = 'modules_blog_post';
+    const CACHE_TAG       = 'modules_blog_post';
+    const STATUS_ENABLED  = 1;
+    const STATUS_DISABLED = 0;
 
-    protected $_cacheTag = 'modules_blog_post';
-
+    protected $_cacheTag    = 'modules_blog_post';
     protected $_eventPrefix = 'modules_blog_post';
 
     protected function _construct()
@@ -41,6 +42,7 @@ class Post extends AbstractModel implements IdentityInterface, PostInterface
 
     /**
      * @param int $id
+     *
      * @return PostInterface
      */
     public function setId($id)
@@ -58,6 +60,7 @@ class Post extends AbstractModel implements IdentityInterface, PostInterface
 
     /**
      * @param string $title
+     *
      * @return PostInterface
      */
     public function setTitle($title)
@@ -75,6 +78,7 @@ class Post extends AbstractModel implements IdentityInterface, PostInterface
 
     /**
      * @param string $content
+     *
      * @return PostInterface
      */
     public function setContent($content)
@@ -92,6 +96,7 @@ class Post extends AbstractModel implements IdentityInterface, PostInterface
 
     /**
      * @param bool $enabled
+     *
      * @return PostInterface
      */
     public function setEnabled($enabled)
@@ -109,6 +114,7 @@ class Post extends AbstractModel implements IdentityInterface, PostInterface
 
     /**
      * @param string $slug
+     *
      * @return PostInterface
      */
     public function setSlug($slug)
@@ -126,6 +132,7 @@ class Post extends AbstractModel implements IdentityInterface, PostInterface
 
     /**
      * @param string $imagePath
+     *
      * @return PostInterface
      */
     public function setImagePath($imagePath)
@@ -143,6 +150,7 @@ class Post extends AbstractModel implements IdentityInterface, PostInterface
 
     /**
      * @param string $createAt
+     *
      * @return PostInterface
      */
     public function setCreateAt($createAt)
@@ -160,10 +168,29 @@ class Post extends AbstractModel implements IdentityInterface, PostInterface
 
     /**
      * @param string $updateAt
+     *
      * @return PostInterface
      */
     public function setUpdateAt($updateAt)
     {
         return $this->setData(self::UPDATE_AT, $updateAt);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getProductId()
+    {
+        return $this->getData(self::PRODUCT_ID);
+    }
+
+    /**
+     * Prepare banner's statuses.
+     *
+     * @return array
+     */
+    public function getAvailableStatuses()
+    {
+        return [self::STATUS_ENABLED => __('Enabled'), self::STATUS_DISABLED => __('Disabled')];
     }
 }

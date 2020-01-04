@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" src_type="url"/>
+    </head>
+    <body>
+        <referenceBlock name="content">
+            <block name="blogpage_blogpage_index" template="Modules_Blog::index.phtml">
+                <arguments>
+                    <argument name="post" xsi:type="object">Modules\Blog\ViewModel\Post\Index</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

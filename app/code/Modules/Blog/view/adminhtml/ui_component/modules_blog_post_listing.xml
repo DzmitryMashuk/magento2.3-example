@@ -10,6 +10,13 @@
     </argument>
 
     <settings>
+        <buttons>
+            <button name="add">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Create Post</label>
+            </button>
+        </buttons>
         <spinner>modules_blog_post</spinner>
         <deps>
             <dep>modules_blog_post_listing.modules_blog_post_listing_data_source</dep>
@@ -111,12 +118,13 @@
 
         <column name="enabled" component="Magento_Ui/js/grid/columns/select">
             <settings>
+                <options class="Modules\Blog\Model\Post\Source\Enabled"/>
                 <filter>select</filter>
                 <editor>
                     <editorType>select</editorType>
                 </editor>
                 <dataType>select</dataType>
-                <label translate="true">Status</label>
+                <label translate="true">Enabled</label>
             </settings>
         </column>
 
@@ -137,5 +145,13 @@
                 <label translate="true">Update_at</label>
             </settings>
         </column>
+
+        <actionsColumn name="actions" class="Modules\Blog\Ui\Component\Listing\Column\PostActions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">id</item>
+                </item>
+            </argument>
+        </actionsColumn>
     </columns>
 </listing>

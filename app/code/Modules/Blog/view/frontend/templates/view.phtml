@@ -1,0 +1,19 @@
+<?php
+$post = $block->getPost();
+?>
+<h1>
+    <?= $post->getTitle(); ?>
+</h1>
+<div>
+    content:
+    <?= $post->getContent(); ?>
+</div>
+image:
+<img src="<?= $post->getImagePath(); ?>">
+<p>
+    <?= $post->getCreateAt(); ?>
+</p>
+<?php
+if ($post->isProductId()): ?>
+    <a href="<?= $post->getProductUrl(); ?> ">Product</a>
+<?php endif; ?>

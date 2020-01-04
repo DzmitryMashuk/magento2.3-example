@@ -5376,7 +5376,7 @@
      * Executed before the child elements are linked. Not safe to do DOM transformation since the
      * compiler linking function will fail to locate the correct elements for linking.
      *
-     * #### Post-linking function
+     * #### BlogPage-linking function
      *
      * Executed after the child elements are linked. It is safe to do DOM transformation in the post-linking function.
      *
@@ -6785,7 +6785,7 @@
                             linkQueue = null;
                         }).
                         error(function(response, code, headers, config) {
-                            throw $compileMinErr('tpload', 'Failed to load template: {0}', config.url);
+                            throw $compileMinErr('tpload', 'Failed to load templates: {0}', config.url);
                         });
 
                     return function delayedNodeLinkFn(ignoreChildLinkFn, scope, node, rootElement, boundTranscludeFn) {
@@ -18318,7 +18318,7 @@
      <div id="template2" ng-cloak class="ng-cloak">{{ 'hello IE7' }}</div>
      </file>
      <file name="protractor.js" type="protractor">
-     it('should remove the template directive and css class', function() {
+     it('should remove the templates directive and css class', function() {
          expect($('#template1').getAttribute('ng-cloak')).
            toBeNull();
          expect($('#template2').getAttribute('ng-cloak')).
@@ -20741,7 +20741,7 @@
         link: function($scope, $element, $attrs, controller, $transclude) {
             if (!$transclude) {
                 throw minErr('ngTransclude')('orphan',
-                    'Illegal use of ngTransclude directive in the template! ' +
+                    'Illegal use of ngTransclude directive in the templates! ' +
                     'No parent directive that requires a transclusion found. ' +
                     'Element: {0}',
                     startingTag($element));
@@ -20780,7 +20780,7 @@
      <div id="tpl-content" ng-include src="currentTpl"></div>
      </file>
      <file name="protractor.js" type="protractor">
-     it('should load template defined inside script tag', function() {
+     it('should load templates defined inside script tag', function() {
         element(by.css('#tpl-link')).click();
         expect(element(by.css('#tpl-content')).getText()).toMatch(/Content of the template/);
       });
@@ -20792,7 +20792,7 @@
             restrict: 'E',
             terminal: true,
             compile: function(element, attr) {
-                if (attr.type == 'text/ng-template') {
+                if (attr.type == 'text/ng-templates') {
                     var templateUrl = attr.id,
                     // IE is not consistent, in scripts we have to read .text but in other nodes we have to read .textContent
                         text = element[0].text;

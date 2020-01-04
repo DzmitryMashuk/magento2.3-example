@@ -10,6 +10,8 @@
                 default="1" comment="Is post enabled"/>
         <column xsi:type="varchar" name="slug" nullable="false" length="255" comment="Post slug"/>
         <column xsi:type="varchar" name="image_path" nullable="false" length="255" comment="Post image path"/>
+        <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="true" identity="false"
+                comment="Product ID"/>
         <column xsi:type="timestamp" name="create_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
                 comment="Created date"/>
         <column xsi:type="timestamp" name="update_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
@@ -17,5 +19,8 @@
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="id"/>
         </constraint>
+        <constraint xsi:type="foreign" referenceId="CATALOG_PRODUCT_ENTITY_ID" table="modules_blog_post"
+                    column="product_id" referenceTable="catalog_product_entity" referenceColumn="entity_id"
+                    onDelete="CASCADE"/>
     </table>
 </schema>

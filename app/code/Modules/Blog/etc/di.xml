@@ -5,6 +5,19 @@
     <preference for="Modules\Blog\Api\Data\PostInterface" type="Modules\Blog\Model\Post"/>
     <preference for="Modules\Blog\Api\Data\PostSearchResultInterface" type="Modules\Blog\Model\PostSearchResult"/>
 
+    <type name="Modules\Blog\Model\Post\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">blog/tmp/icon</argument>
+            <argument name="basePath" xsi:type="string">blog/icon</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </type>
+
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
@@ -14,6 +27,7 @@
             </argument>
         </arguments>
     </type>
+
     <virtualType name="Modules\Blog\Model\ResourceModel\Post\Grid\Collection"
                  type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
