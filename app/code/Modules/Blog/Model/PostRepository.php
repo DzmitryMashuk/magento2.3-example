@@ -42,9 +42,11 @@ class PostRepository implements PostRepositoryInterface
     {
         $post = $this->postFactory->create();
         $post->load($id);
+
         if (! $post->getId()) {
             throw new NoSuchEntityException(__('Unable to find hamburger with ID "%1"', $id));
         }
+
         return $post;
     }
 
@@ -57,6 +59,11 @@ class PostRepository implements PostRepositoryInterface
     public function delete(PostInterface $post)
     {
         $post->getResource()->delete($post);
+    }
+
+    public function deleteById($id)
+    {
+        return $this->delete($this->getById($id));
     }
 
     public function getList(SearchCriteriaInterface $searchCriteria)
@@ -76,10 +83,12 @@ class PostRepository implements PostRepositoryInterface
     {
         foreach ($searchCriteria->getFilterGroups() as $filterGroup) {
             $fields = $conditions = [];
+
             foreach ($filterGroup->getFilters() as $filter) {
                 $fields[]     = $filter->getField();
                 $conditions[] = [$filter->getConditionType() => $filter->getValue()];
             }
+
             $collection->addFieldToFilter($fields, $conditions);
         }
     }

@@ -10,6 +10,13 @@
     </argument>
 
     <settings>
+        <buttons>
+            <button name="add">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Create Post</label>
+            </button>
+        </buttons>
         <spinner>modules_blog_post</spinner>
         <deps>
             <dep>modules_blog_post_listing.modules_blog_post_listing_data_source</dep>
@@ -63,6 +70,21 @@
                     </item>
                 </argument>
             </action>
+
+<!--            <action name="edit">-->
+<!--                <argument name="data" xsi:type="array">-->
+<!--                    <item name="config" xsi:type="array">-->
+<!--                        <item name="type" xsi:type="string">edit</item>-->
+<!--                        <item name="label" xsi:type="string" translate="true">Edit</item>-->
+<!--                        <item name="callback" xsi:type="array">-->
+<!--                            <item name="provider" xsi:type="string">-->
+<!--                                modules_blog_post_listing.modules_blog_post_listing.modules_blog_post_columns_editor-->
+<!--                            </item>-->
+<!--                            <item name="target" xsi:type="string">editSelected</item>-->
+<!--                        </item>-->
+<!--                    </item>-->
+<!--                </argument>-->
+<!--            </action>-->
         </massaction>
         <paging name="listing_paging"/>
         <exportButton name="export_button"/>
@@ -137,5 +159,22 @@
                 <label translate="true">Update_at</label>
             </settings>
         </column>
+
+        <actionsColumn name="actions" class="Modules\Blog\Ui\Component\Listing\Column\PostActions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">id</item>
+                </item>
+            </argument>
+        </actionsColumn>
+<!--        <actionsColumn name="actions" class="Modules\Blog\Ui\Component\Listing\Column\PostActions">-->
+<!--            <argument name="data" xsi:type="array">-->
+<!--                <item name="config" xsi:type="array">-->
+<!--                    <item name="resizeEnabled" xsi:type="boolean">false</item>-->
+<!--                    <item name="resizeDefaultWidth" xsi:type="string">107</item>-->
+<!--                    <item name="indexField" xsi:type="string">id</item>-->
+<!--                </item>-->
+<!--            </argument>-->
+<!--        </actionsColumn>-->
     </columns>
 </listing>
